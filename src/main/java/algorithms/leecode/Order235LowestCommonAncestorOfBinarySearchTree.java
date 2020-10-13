@@ -1,7 +1,5 @@
 package algorithms.leecode;
 
-import com.google.common.collect.Lists;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
