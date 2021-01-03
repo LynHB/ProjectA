@@ -27,6 +27,9 @@ public class HttpServerDemo implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
+        if(httpExchange.getRequestURI().getPath().startsWith("/api/telemetry/v2/clusters/_stats")){
+            return;
+        }
         String response = httpExchange.getRequestURI()+":test message";
         httpExchange.sendResponseHeaders(200, 0);
         OutputStream os = httpExchange.getResponseBody();
