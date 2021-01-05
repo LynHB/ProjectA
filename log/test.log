@@ -1,0 +1,2 @@
+2020-11-04 15:30:40 [main] ERROR BtsTokenService:105 - 正确的mac：79efd2f4c6acdfae55caf15cfb24ee8010aad60fd6a37d5a4a62eed347d5182c，校验失败的mac：xKbvcdIsIzjqG8XDzi7dr4L+51NrWMwaEsMpnPYGjKo=，计算mac的参数为：BtsTokenMacParams(host=192.168.1.1, httpMethod=GET, requestUri=/aaa, macKey=null, headerParams={})
+2020-11-04 15:32:05 [main] ERROR BtsTokenService:105 - 正确的mac：79efd2f4c6acdfae55caf15cfb24ee8010aad60fd6a37d5a4a62eed347d5182c，校验失败的mac：xKbvcdIsIzjqG8XDzi7dr4L+51NrWMwaEsMpnPYGjKo=，计算mac的参数为：BtsTokenMacParams(host=192.168.1.1, httpMethod=GET, requestUri=/aaa, macKey=null, headerParams={})
