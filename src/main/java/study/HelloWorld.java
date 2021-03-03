@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.function.Function;
 
 public class HelloWorld {
     public static void main(String[] args){
-        LocalDate local = LocalDate.now();
+
+        LocalDate local = LocalDate.now().minusDays(1);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         System.out.println(local.format(dateTimeFormatter));
 
@@ -35,6 +37,14 @@ public class HelloWorld {
 
 
 
+        String s = "1234";
+        change(s,(String str)->{
+            return Integer.parseInt(str);
+        });
+    }
 
+    public static void change(String s, Function<String,Integer> fun){
+        Integer i = fun.apply(s);
+        System.out.println(i);
     }
 }
