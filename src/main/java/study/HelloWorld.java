@@ -11,11 +11,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.concurrent.*;
 import java.util.function.Function;
 
 public class HelloWorld {
     public static void main(String[] args){
+
+        StringJoiner executionDependIds = new StringJoiner(",");
+        executionDependIds.add("a").add("b");
+        System.out.println(executionDependIds.toString());
+        String[] split = executionDependIds.toString().split(",");
+        for(String s: split){
+            System.out.println(s);
+        }
 
         LocalDate local = LocalDate.now().minusDays(1);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
