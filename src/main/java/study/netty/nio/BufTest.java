@@ -1,16 +1,22 @@
 package study.netty.nio;
 
+import io.grpc.netty.shaded.io.netty.buffer.ByteBuf;
+import io.grpc.netty.shaded.io.netty.buffer.Unpooled;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class BufTest {
     public static void main(String[] args) throws IOException {
         System.out.println("ByteBuffer test");
         ByteBuffer buffer = ByteBuffer.allocate(16);
+
         buffer.put((byte) 'a');
         buffer.flip();
         System.out.println(buffer.get());
@@ -27,5 +33,9 @@ public class BufTest {
         MappedByteBuffer mappedByteBuffer = channel.map(FileChannel.MapMode.READ_WRITE,0,5);
         mappedByteBuffer.put(0, (byte) 'h');
         randomAccessFile.close();
+
+        // ByteBuf测试
+        ByteBuf buffer1 = Unpooled.copiedBuffer("Hello", StandardCharsets.UTF_8);
+        System.out.println(buffer1.capacity());
     }
 }
