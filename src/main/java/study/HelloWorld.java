@@ -1,24 +1,43 @@
 package study;
 
+import com.sun.javafx.binding.StringFormatter;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
 
 public class HelloWorld {
-    public static void main(String[] args){
+    public static void main(String[] args) throws ParseException {
+
+        Character character = 1;
+        System.out.println(character);
+        // 创建一个 HashMap
+        HashMap<String, Integer> prices = new HashMap<>();
+
+        // 往HashMap中添加映射项
+        prices.put("Shoes", 200);
+        prices.put("Bag", 300);
+        prices.put("Pant", 150);
+        System.out.println("HashMap: " + prices);
+
+        // 计算 Shirt 的值
+        int shirtPrice = prices.computeIfAbsent("Shirt", key -> 280);
+        System.out.println("Price of Shirt: " + shirtPrice);
+
+        // 输出更新后的HashMap
+        System.out.println("Updated HashMap: " + prices);
+
 
         StringJoiner executionDependIds = new StringJoiner(",");
+        System.out.println(executionDependIds.toString());
         executionDependIds.add("a").add("b");
         System.out.println(executionDependIds.toString());
         String[] split = executionDependIds.toString().split(",");
