@@ -2,6 +2,7 @@ package study;
 
 import com.sun.javafx.binding.StringFormatter;
 import org.apache.commons.lang3.time.DateUtils;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -13,10 +14,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 
 public class HelloWorld {
+
     public static void main(String[] args) throws ParseException {
 
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDate occurLocalDate = LocalDate.parse("2021-11-12 12:00:12",dtf);
+        System.out.println(occurLocalDate.getDayOfMonth());
+
+        System.out.println(LocalDateTime.now().minusDays(45).atZone(ZoneOffset.ofHours(8)).toInstant().toEpochMilli());
+        System.out.println(String.format("查询oncall接口调用异常！%s(%d)", "dsa",1));
+        System.out.println("dsjjkjj kd".replaceAll("\\s+","").replaceAll("'","").replaceAll("\"",""));
+        System.out.println(LocalDate.now().atStartOfDay(ZoneOffset.ofHours(8)).toInstant().toEpochMilli());
         Character character = 1;
         System.out.println(character);
         // 创建一个 HashMap
