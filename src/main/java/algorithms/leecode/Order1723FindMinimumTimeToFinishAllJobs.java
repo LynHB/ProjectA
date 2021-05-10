@@ -3,6 +3,7 @@ package algorithms.leecode;
 import java.util.Arrays;
 
 /**
+ * @Description
  * 给你一个整数数组 jobs ，其中 jobs[i] 是完成第 i 项工作要花费的时间。
  *
  * 请你将这些工作分配给 k 位工人。所有工作都应该分配给工人，且每项工作只能分配给一位工人。工人的 工作时间 是完成分配给他们的所有工作花费时间的总和。请你设计一套最佳的工作分配方案，使工人的 最大工作时间 得以 最小化 。
@@ -24,19 +25,15 @@ import java.util.Arrays;
  * 1 号工人：1、2、8（工作时间 = 1 + 2 + 8 = 11）
  * 2 号工人：4、7（工作时间 = 4 + 7 = 11）
  * 最大工作时间是 11 。
- *  
- *
- * 提示：
- *
- * 1 <= k <= jobs.length <= 12
- * 1 <= jobs[i] <= 107
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/find-minimum-time-to-finish-all-jobs
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * @Date 13:26 2021/5/8
+ * @Author Huang Bing
  */
 public class Order1723FindMinimumTimeToFinishAllJobs {
-    public static class Solution {
+    static class Solution {
         public int minimumTimeRequired(int[] jobs, int k) {
             Arrays.sort(jobs);
             int low = 0, high = jobs.length - 1;
@@ -87,31 +84,8 @@ public class Order1723FindMinimumTimeToFinishAllJobs {
             return false;
         }
     }
-
-    public static class Solution2{
-        public int minimumTimeRequired(int[] jobs, int k) {
-            int n = jobs.length;
-            int[] sum = new int[1 << n];
-            for (int i = 1; i < (1 << n); i++) {
-                int x = Integer.numberOfTrailingZeros(i), y = i - (1 << x);
-                sum[i] = sum[y] + jobs[x];
-            }
-
-            int[][] dp = new int[k][1 << n];
-            for (int i = 0; i < (1 << n); i++) {
-                dp[0][i] = sum[i];
-            }
-
-            for (int i = 1; i < k; i++) {
-                for (int j = 0; j < (1 << n); j++) {
-                    int minn = Integer.MAX_VALUE;
-                    for (int x = j; x != 0; x = (x - 1) & j) {
-                        minn = Math.min(minn, Math.max(dp[i - 1][j - x], sum[x]));
-                    }
-                    dp[i][j] = minn;
-                }
-            }
-            return dp[k - 1][(1 << n) - 1];
-        }
+    public static void main(String[] args){
+        Solution solution = new Solution();
+        System.out.println(solution.minimumTimeRequired(new int[]{1, 2, 4, 7, 8},2));
     }
 }
