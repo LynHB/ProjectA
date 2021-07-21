@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
@@ -26,6 +27,9 @@ public class HelloWorld {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd");
         String thirtyDay = localDate.minusDays(30).format(dtf);
         System.out.println(thirtyDay);
+
+        Map<String, HashMap<String,String>> map = new HashMap();
+        DoubleUnaryOperator
 
     }
 
