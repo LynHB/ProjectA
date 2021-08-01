@@ -1,8 +1,5 @@
 package study;
 
-import com.sun.javafx.binding.StringFormatter;
-import org.apache.commons.lang3.time.DateUtils;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -29,7 +26,6 @@ public class HelloWorld {
         System.out.println(thirtyDay);
 
         Map<String, HashMap<String,String>> map = new HashMap();
-        DoubleUnaryOperator
 
     }
 

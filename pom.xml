@@ -10,6 +10,11 @@
     <properties>
         <log4j2.version>2.13.3</log4j2.version>
         <grpc.version>1.30.2</grpc.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <asm.version>9.0</asm.version>
     </properties>
 
     <build>
@@ -20,12 +25,43 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <fork>true</fork>
+                    <compilerArgs>
+                        <arg>-g</arg>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
+        <!-- ASM依赖 -->
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-commons</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-util</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-tree</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-analysis</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -154,6 +190,7 @@
         </dependency>
 
 
+    </dependencies>
 
 
 
