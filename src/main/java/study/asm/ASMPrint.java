@@ -16,6 +16,7 @@ public class ASMPrint {
         int parsingOptions = ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG;
         boolean asmCode = true;
 
+
         // (2) 打印结果
         Printer printer = asmCode ? new ASMifier() : new Textifier();
         PrintWriter printWriter = new PrintWriter(System.out, true);
