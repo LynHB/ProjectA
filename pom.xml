@@ -8,7 +8,7 @@
     <artifactId>ProjectA1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <log4j2.version>2.13.3</log4j2.version>
+        <log4j2.version>2.17.1</log4j2.version>
         <grpc.version>1.30.2</grpc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
